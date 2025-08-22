@@ -150,6 +150,9 @@ dist
 
 .vscode-test
 
+# intellij
+*.iml
+
 # yarn v2
 
 .yarn/cache
