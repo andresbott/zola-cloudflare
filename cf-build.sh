@@ -17,8 +17,10 @@ main() {
 
   # Build the site
   echo "Building the site..."
-  uglifyjs static/js/script.js --mangle > static/js/script.min.js
-  uglifycss static/css/style.css > static/css/style.min.css
+  # adjust the build script as wish, e.g.
+  #  uglifyjs static/js/script.js --mangle > static/js/script.min.js
+  #  uglifycss static/css/style.css > static/css/style.min.css
+
   zola build --minify
 }
 
