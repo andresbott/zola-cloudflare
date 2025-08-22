@@ -13,7 +13,7 @@ enabled = true
 
 
 [build]
-command = './make cf-build'
+command = './cf-build.sh'
 
 # Smart Placement
 # Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

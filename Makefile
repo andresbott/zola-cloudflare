@@ -20,16 +20,8 @@ install-zola: ## install zola locally
 
 build: ## run the local zola to build the project
 	@echo "Building the site..."
-#	uglifyjs static/js/script.js --mangle > static/js/script.min.js
-#	uglifycss static/css/style.css > static/css/style.min.css
 	"$(ZOLA_DIR)/zola" build --minify
 
-
-cf-build: install-zola
-	@echo "Building the site..."
-	uglifyjs static/js/script.js --mangle > static/js/script.min.js
-	uglifycss static/css/style.css > static/css/style.min.css
-	"$(ZOLA_DIR)/zola" build --minify
 
 help: ## Show this help
 	@egrep '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST)  | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m·%-20s\033[0m %s\n", $$1, $$2}'
