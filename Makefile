@@ -17,10 +17,13 @@ install-zola: ## install zola locally
 	rm "$(ZOLA_TAR)"
 	@echo "Add to PATH: export PATH=$(ZOLA_DIR):$$PATH"
 
-
 build: ## run the local zola to build the project
 	@echo "Building the site..."
 	"$(ZOLA_DIR)/zola" build --minify
+
+
+run: ## run the cf function locally
+	npx wrangler dev --local
 
 
 help: ## Show this help

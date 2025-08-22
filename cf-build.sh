@@ -9,11 +9,14 @@ main() {
 
   # Install Zola
   echo "Installing Zola ${ZOLA_VERSION}..."
-  curl -sLJO "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v{$ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
-  mkdir "${HOME}/.local/zola"
+  # Remove existing file if it exists to prevent curl error 23
+  rm -f "zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+  curl -sLJO "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+  mkdir -p "${HOME}/.local/zola"
   tar -C "${HOME}/.local/zola" -xf "zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
   rm "zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
   export PATH="${HOME}/.local/zola:${PATH}"
+
 
   # Build the site
   echo "Building the site..."
